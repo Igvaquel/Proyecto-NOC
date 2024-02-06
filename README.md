@@ -8,8 +8,12 @@ El objetivo es crear una serie de tareas usando Arquitectura Limpia con TypeScri
 ```
 PORT=3000
 
+MAILER_SERVICE=
 MAILER_EMAIL=
 MAILER_SECRET_KEY=
 
 PROD=false
 ```
+3. Ejecutar el comando ```npm install```
+4. Ejecutar ```npm run dev```
+
