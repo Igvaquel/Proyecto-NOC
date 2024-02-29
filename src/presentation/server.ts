@@ -34,17 +34,17 @@ export class Server {
         // const emailService = new EmailService();
         // emailService.sendEmailWithFileSystemLogs('pepovaquel@gmail.com');      
 
-        // CronService.createJob(
-        //     '*/5 * * * * *', 
-        //     () => {
-        //         const url = 'https://google.com'
-        //         new CheckServiceMultiple(
-        //             [ fsLogRepository, postgresLogRepository, mongoLogRepository ],
-        //             () => console.log(`${ url } is ok`), // Pueden ser undefined
-        //             ( error ) => console.log(error),
-        //         ).execute( url )
+        CronService.createJob(
+            '*/5 * * * * *', 
+            () => {
+                const url = 'https://google.com'
+                new CheckServiceMultiple(
+                    [ fsLogRepository, postgresLogRepository, mongoLogRepository ],
+                    () => console.log(`${ url } is ok`), // Pueden ser undefined
+                    ( error ) => console.log(error),
+                ).execute( url )
 
-        //     }
-        // );
+            }
+        );
     }
 }

@@ -1,9 +1,9 @@
 import { LogDatasource } from "../../domain/datasources/log.datasource";
 import { LogEntity, LogSeverytyLevel } from "../../domain/entities/log.entity";
-import { LogRespository } from "../../domain/repository/log.repository";
+import { LogRepository } from "../../domain/repository/log.repository";
 
 
-export class LogRespositoryImpl implements LogRespository {
+export class LogRespositoryImpl implements LogRepository {
 
     constructor(
         private readonly logDatasource: LogDatasource, //Injeccion de dependencia
@@ -13,7 +13,7 @@ export class LogRespositoryImpl implements LogRespository {
         return this.logDatasource.saveLog( log );
     }
     async getLogs( severityLevel: LogSeverytyLevel ): Promise<LogEntity[]> {
-        return this.logDatasource.getLog( severityLevel );
+        return this.logDatasource.getLogs( severityLevel );
     }
 
 

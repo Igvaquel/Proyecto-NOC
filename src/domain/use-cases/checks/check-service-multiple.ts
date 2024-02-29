@@ -1,5 +1,5 @@
 import { LogEntity, LogSeverytyLevel } from "../../entities/log.entity";
-import { LogRespository } from "../../repository/log.repository";
+import { LogRepository } from "../../repository/log.repository";
 
 
 interface CheckServiceMultipleUseCase {
@@ -14,18 +14,18 @@ type ErrorCallback = (( error: string ) => void ) | undefined;
 export class CheckServiceMultiple implements CheckServiceMultipleUseCase{
 
     constructor(
-        private readonly logRepository: LogRespository[],
+        private readonly logRepositorys: LogRepository[],
         private readonly succesCallback: SuccesCallback,
         private readonly errorCallback: ErrorCallback,
     ) {}
 
     private callLogs( log: LogEntity ) {
-        this.logRepository.forEach( logRepository => {
+        this.logRepositorys.forEach( logRepository => {
             logRepository.saveLog(log)
         })
     }
 
-    public async execute( url: string):Promise<boolean>{
+    public async execute( url: string ):Promise<boolean>{
 
         try {
             const req = await fetch( url )

@@ -11,7 +11,7 @@ export class MongoLogDatasource implements LogDatasource {
         
     }
 
-    async getLog( severityLevel: LogSeverytyLevel ): Promise<LogEntity[]> {
+    async getLogs( severityLevel: LogSeverytyLevel ): Promise<LogEntity[]> {
     const logs = await LogModel.find({
         level: severityLevel
     });

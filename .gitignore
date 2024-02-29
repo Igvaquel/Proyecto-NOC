@@ -9,5 +9,8 @@ logs/
 
 
 .env
-mongo/
-postgres/
+
+/mongo
+/postgres
+/mongo-test
+/postgres-test
